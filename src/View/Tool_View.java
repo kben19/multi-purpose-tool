@@ -1,7 +1,8 @@
-package View; /**
+/**
  * Created by benzali on 7/20/2018.
  */
 
+package View;
 import Controller.*;
 import Model.Tool_Model;
 
@@ -17,6 +18,7 @@ public class Tool_View {
     private Tool_Model myModel;
     private TextField calTextField;
 
+    //Constructor
     public Tool_View(Tool_Model aModel){
         myModel = aModel;
         Frame frame;
@@ -24,15 +26,16 @@ public class Tool_View {
         frame = new Frame("Multi Purposes Tool");
         frame.addWindowListener(new CloseListener()); //Close button listener
 
-        JTabbedPane tabbedPane = new JTabbedPane();
-        JPanel calculator = new JPanel();
-        JPanel timer = new JPanel();
+        JTabbedPane tabbedPane = new JTabbedPane(); //Tab pane
+        JPanel calculator = new JPanel();           //Calculator panel
+        JPanel timer = new JPanel();                //Timer panel
 
         JPanel buttonPanel = new JPanel();
         GridLayout myGrid = new GridLayout(0, 4);
         myGrid.setHgap(50);
         myGrid.setVgap(50);
 
+        //Calculator button placement set up
         String[] buttonString = {"7", "8", "9", "X", "4", "5", "6", "-", "1", "2", "3", "+", "±", "0", ".", "="};
         buttonPanel.setLayout(myGrid);
         for(String temp : buttonString){
@@ -42,6 +45,7 @@ public class Tool_View {
             buttonPanel.add(myButton);
         }
 
+        //Calculator panel layout setup
         calculator.setLayout(new BorderLayout());
         calTextField = new TextField("0");
         calTextField.setFont(new Font("Arial", Font.PLAIN, 50));
@@ -49,10 +53,12 @@ public class Tool_View {
         calculator.add(calTextField, BorderLayout.NORTH);
         calculator.add(buttonPanel, BorderLayout.CENTER);
 
+        //Tmer panel layout setup
         timer.add(new JLabel("00:00"));
         timer.add(new Button("timer"));
         timer.add(new Button("stopwatch"));
 
+        //Tabs pane
         tabbedPane.addTab("Calculator", calculator);
         tabbedPane.addTab("Timer", timer);
 
@@ -69,7 +75,7 @@ public class Tool_View {
         System.out.println("View: Controller added");
     }
 
-
+    //Update view data retrieved from model
     public void update(){
         calTextField.setText(myModel.getText());
     }

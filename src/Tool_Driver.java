@@ -1,10 +1,10 @@
-import Controller.Tool_Controller;
-import Model.Tool_Model;
-import View.Tool_View;
-
 /**
  * Created by benzali on 7/20/2018.
  */
+
+import Model.Tool_Model;
+import View.Tool_View;
+
 public class Tool_Driver {
     //main class
     public static void main(String[] args){
