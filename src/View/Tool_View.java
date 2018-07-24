@@ -1,9 +1,11 @@
-/**
+package View; /**
  * Created by benzali on 7/20/2018.
  */
 
+import Controller.*;
+import Model.Tool_Model;
+
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -12,11 +14,12 @@ import java.awt.event.WindowEvent;
 
 public class Tool_View {
 
-    private Tool_Controller myController;
-    private Frame frame;
+    private Tool_Model myModel;
+    private TextField calTextField;
 
-    Tool_View(){
-        System.out.println("View Initialized");
+    public Tool_View(Tool_Model aModel){
+        myModel = aModel;
+        Frame frame;
 
         frame = new Frame("Multi Purposes Tool");
         frame.addWindowListener(new CloseListener()); //Close button listener
@@ -35,14 +38,15 @@ public class Tool_View {
         for(String temp : buttonString){
             Button myButton = new Button(temp);
             myButton.setFont(new Font("Arial", Font.PLAIN, 40));
+            myButton.addActionListener(new Calculator_Controller(aModel));
             buttonPanel.add(myButton);
         }
 
         calculator.setLayout(new BorderLayout());
-        TextField myTextField = new TextField("0");
-        myTextField.setFont(new Font("Arial", Font.PLAIN, 50));
-        myTextField.setEnabled(false);
-        calculator.add(myTextField, BorderLayout.NORTH);
+        calTextField = new TextField("0");
+        calTextField.setFont(new Font("Arial", Font.PLAIN, 50));
+        calTextField.setEnabled(false);
+        calculator.add(calTextField, BorderLayout.NORTH);
         calculator.add(buttonPanel, BorderLayout.CENTER);
 
         timer.add(new JLabel("00:00"));
@@ -56,6 +60,8 @@ public class Tool_View {
         frame.setSize(780, 780);
         frame.setLocation(100,100);
         frame.setVisible(true);
+
+        System.out.println("View Initialized");
     }
 
     //Controller Mutator
@@ -63,6 +69,10 @@ public class Tool_View {
         System.out.println("View: Controller added");
     }
 
+
+    public void update(){
+        calTextField.setText(myModel.getText());
+    }
 
     // Close button listener
     public static class CloseListener extends WindowAdapter {
