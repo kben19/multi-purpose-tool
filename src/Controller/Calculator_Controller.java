@@ -34,6 +34,26 @@ public class Calculator_Controller extends Tool_Controller implements java.awt.e
             case "6":
                 myModel.appendChar("6");
                 break;
+            case "1":
+                myModel.appendChar("1");
+                break;
+            case "2":
+                myModel.appendChar("2");
+                break;
+            case "3":
+                myModel.appendChar("3");
+                break;
+            case "±":
+                myModel.setText(
+                        (myModel.getText().substring(0, 1).equals("-") ? myModel.getText().substring(1) : "-" + myModel.getText())
+                );
+                break;
+            case "0":
+                myModel.appendChar("0");
+                break;
+            case ".":
+                myModel.appendChar(".");
+                break;
         }
     }
 }

@@ -28,6 +28,12 @@ public class Tool_Model {
         return calculatorText;
     }
 
+    //Calculator text field mutator
+    public void setText(String inputText){
+        calculatorText = inputText;
+        myView.update();
+    }
+
     //Add view monitoring the model
     public void addView(Tool_View view){
         myView = view;
