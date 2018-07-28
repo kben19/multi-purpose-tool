@@ -16,6 +16,23 @@ public class Calculator_Controller extends Tool_Controller implements java.awt.e
     @Override
     public void actionPerformed(java.awt.event.ActionEvent e){
         switch(e.getActionCommand().toString()){
+            case "CE":
+                String temp = myModel.getText();
+                int i = temp.length() - 1;
+                while(temp.charAt(i) != 'X' && temp.charAt(i) != '÷' && temp.charAt(i) != '-' && temp.charAt(i) != '+'){
+                    myModel.deleteChar(i);
+                    i--;
+                }
+                break;
+            case "C":
+                myModel.setText("");
+                break;
+            case "Del":
+                myModel.deleteChar(myModel.getTextSize() - 1);
+                break;
+            case "÷":
+                myModel.appendChar("÷");
+                break;
             case "7":
                 myModel.appendChar("7");
                 break;
@@ -24,6 +41,9 @@ public class Calculator_Controller extends Tool_Controller implements java.awt.e
                 break;
             case "9":
                 myModel.appendChar("9");
+                break;
+            case "X":
+                myModel.appendChar("X");
                 break;
             case "4":
                 myModel.appendChar("4");
@@ -34,6 +54,9 @@ public class Calculator_Controller extends Tool_Controller implements java.awt.e
             case "6":
                 myModel.appendChar("6");
                 break;
+            case "-":
+                myModel.appendChar("-");
+                break;
             case "1":
                 myModel.appendChar("1");
                 break;
@@ -42,6 +65,9 @@ public class Calculator_Controller extends Tool_Controller implements java.awt.e
                 break;
             case "3":
                 myModel.appendChar("3");
+                break;
+            case "+":
+                myModel.appendChar("+");
                 break;
             case "±":
                 myModel.setText(
@@ -54,6 +80,10 @@ public class Calculator_Controller extends Tool_Controller implements java.awt.e
             case ".":
                 myModel.appendChar(".");
                 break;
+            case "=":
+
+                break;
+            default: break;
         }
     }
 }

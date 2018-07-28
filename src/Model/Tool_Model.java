@@ -23,6 +23,24 @@ public class Tool_Model {
         myView.update();
     }
 
+    public String getChar(int index){
+        if (index < calculatorText.length()){
+            return calculatorText.substring(index, index+1);
+        }
+        return null;
+    }
+
+    public void deleteChar(int index){
+        if (index < calculatorText.length() && index >= 0){
+            calculatorText = calculatorText.substring(0, index) + calculatorText.substring(index+1);
+        }
+        myView.update();
+    }
+
+    public int getTextSize(){
+        return calculatorText.length();
+    }
+
     //Calculator text field accessor
     public String getText(){
         return calculatorText;

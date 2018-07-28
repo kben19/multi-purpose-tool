@@ -36,7 +36,7 @@ public class Tool_View {
         myGrid.setVgap(50);
 
         //Calculator button placement set up
-        String[] buttonString = {"7", "8", "9", "X", "4", "5", "6", "-", "1", "2", "3", "+", "±", "0", ".", "="};
+        String[] buttonString = {"CE", "C", "Del", "÷", "7", "8", "9", "X", "4", "5", "6", "-", "1", "2", "3", "+", "±", "0", ".", "="};
         buttonPanel.setLayout(myGrid);
         for(String temp : buttonString){
             Button myButton = new Button(temp);
