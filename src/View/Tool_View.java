@@ -29,7 +29,10 @@ public class Tool_View {
         JTabbedPane tabbedPane = new JTabbedPane(); //Tab pane
         JPanel calculator = new JPanel();           //Calculator panel
         JPanel timer = new JPanel();                //Timer panel
+        JPanel note = new JPanel();                 //Note panel
+        JPanel shortcut = new JPanel();             //Shortcut panel
 
+        //Calculator button grid layout setup
         JPanel buttonPanel = new JPanel();
         GridLayout myGrid = new GridLayout(0, 4);
         myGrid.setHgap(50);
@@ -53,15 +56,21 @@ public class Tool_View {
         calculator.add(calTextField, BorderLayout.NORTH);
         calculator.add(buttonPanel, BorderLayout.CENTER);
 
-        //Tmer panel layout setup
+        //Timer panel layout setup
         timer.add(new JLabel("00:00"));
         timer.add(new Button("timer"));
         timer.add(new Button("stopwatch"));
 
+        //Note panel
+        note.add(new Button("Add Note"));
+
         //Tabs pane
         tabbedPane.addTab("Calculator", calculator);
         tabbedPane.addTab("Timer", timer);
+        tabbedPane.addTab("Note", note);
+        tabbedPane.addTab("Shortcut App", shortcut);
 
+        //frame setting
         frame.add(tabbedPane);
         frame.setSize(780, 780);
         frame.setLocation(100,100);
