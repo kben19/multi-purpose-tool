@@ -81,7 +81,7 @@ public class Calculator_Controller extends Tool_Controller implements java.awt.e
                 myModel.appendChar(".");
                 break;
             case "=":
-
+                myModel.calculateText();
                 break;
             default: break;
         }
