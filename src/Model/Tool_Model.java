@@ -50,6 +50,7 @@ public class Tool_Model {
                 numList.add(calculatorText.substring(prevIndex, i));
                 prevIndex = i+1;
             }
+
         }
         numList.add(calculatorText.substring(prevIndex));
 
@@ -61,7 +62,21 @@ public class Tool_Model {
                 numList.remove(index+1);
                 operationList.remove(index);
             }
-
+            else if (operationList.get(index).equals("÷")){
+                numList.set(index, Integer.toString(Integer.parseInt(numList.get(index)) / Integer.parseInt(numList.get(index+1))));
+                numList.remove(index+1);
+                operationList.remove(index);
+            }
+            else if (operationList.get(index).equals("+")){
+                numList.set(index, Integer.toString(Integer.parseInt(numList.get(index)) + Integer.parseInt(numList.get(index+1))));
+                numList.remove(index+1);
+                operationList.remove(index);
+            }
+            else if (operationList.get(index).equals("-")){
+                numList.set(index, Integer.toString(Integer.parseInt(numList.get(index)) - Integer.parseInt(numList.get(index+1))));
+                numList.remove(index+1);
+                operationList.remove(index);
+            }
         }
         calculatorText = numList.get(0);
         myView.update();

@@ -55,6 +55,7 @@ public class Tool_View {
         calTextField.setEnabled(false);
         calculator.add(calTextField, BorderLayout.NORTH);
         calculator.add(buttonPanel, BorderLayout.CENTER);
+        calculator.addKeyListener(new Tool_KeyListener(aModel));
 
         //Timer panel layout setup
         timer.add(new JLabel("00:00"));
