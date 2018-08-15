@@ -1,6 +1,6 @@
 # multi-purpose-tool
 
-Version 0.3
+Version 0.35
 Application that offers multi purposes tools
 Application features include:
 - Calculator (in development)
@@ -8,6 +8,10 @@ Application features include:
 - Note (not yet developed)
 - Shortcut Application (not yet developed)
 - Always on top pin (not yet developed)
+
+#Program Requirements:
+- Java 1.8
+- Windows 8/10
 
 # Calculator
 simple calculator that handles common operation such as:
