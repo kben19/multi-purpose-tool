@@ -4,13 +4,13 @@
 
 package Model;
 
+import Observer.Subject;
 import View.Tool_View;
 
 import java.util.ArrayList;
 
-public class Tool_Model {
+public class Tool_Model extends Subject {
 
-    private Tool_View myView;
     private String calculatorText;
 
     //Constructor
@@ -22,7 +22,7 @@ public class Tool_Model {
     //Append character into calculator text field
     public void appendChar(String aChar){
         calculatorText += aChar;
-        myView.update();
+        notifyObservers();
     }
 
     public String getChar(int index){
@@ -36,7 +36,7 @@ public class Tool_Model {
         if (index < calculatorText.length() && index >= 0){
             calculatorText = calculatorText.substring(0, index) + calculatorText.substring(index+1);
         }
-        myView.update();
+        notifyObservers();
     }
 
     public void calculateText(){
@@ -79,7 +79,7 @@ public class Tool_Model {
             }
         }
         calculatorText = numList.get(0);
-        myView.update();
+        notifyObservers();
     }
 
     public int getTextSize(){
@@ -94,11 +94,15 @@ public class Tool_Model {
     //Calculator text field mutator
     public void setText(String inputText){
         calculatorText = inputText;
-        myView.update();
+        notifyObservers();
     }
 
     //Add view monitoring the model
     public void addView(Tool_View view){
-        myView = view;
+        attachView(view);
+    }
+
+    public void deleteView(int index){
+        removeView(index);
     }
 }

@@ -5,6 +5,7 @@
 package View;
 import Controller.*;
 import Model.Tool_Model;
+import Observer.Observer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +14,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 
-public class Tool_View {
+public class Tool_View implements Observer{
 
     private Tool_Model myModel;
     private TextField calTextField;
@@ -86,6 +87,7 @@ public class Tool_View {
     }
 
     //Update view data retrieved from model
+    @Override
     public void update(){
         calTextField.setText(myModel.getText());
     }
